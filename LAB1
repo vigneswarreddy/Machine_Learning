@@ -1,2 +1,100 @@
-LAB1
+def count_vowels_and_consonants(text):
+    vowels = "aeiouAEIOU"
+    num_vowels = 0
+    num_consonants = 0
 
+    for character in text:
+        if character.isalpha():  # Check if the character is a letter
+            if character in vowels:
+                num_vowels += 1
+            else:
+                num_consonants += 1
+
+    return num_vowels, num_consonants
+word = "I am Baba Ameer Shaik"
+vowel_count, consonant_count = count_vowels_and_consonants(word)
+print(f"Input Word: {word}")
+print(f"Number of Vowels: {vowel_count}, Number of Consonants: {consonant_count}")
+
+2.
+def multiply_matrices(A, B):
+    # if matrices A and B can be multiplied
+    if len(A[0]) != len(B):
+        return "Error: Matrices are not multipliable"
+
+    # Initialize the result matrix with zeros
+    rows_A = len(A)
+    cols_B = len(B[0])
+    # Initialize the result matrix with zeros
+# This matrix will have rows equal to the number of rows in A
+# and columns equal to the number of columns in B
+    result = []
+    for i in range(rows_A):
+        row = []
+        for j in range(cols_B):
+            row.append(0)  # Initialize each element in the row to 0
+        result.append(row)
+
+    # Perform matrix multiplication
+    for i in range(rows_A):
+        for j in range(cols_B):
+            for k in range(len(B)):
+                result[i][j] += A[i][k] * B[k][j]
+
+    return result
+
+# Main program
+
+A = [[1, 2],
+     [3, 4]]
+B = [[5, 6],
+     [7, 8]]
+
+# Calculate the product of A and B
+product = multiply_matrices(A, B)
+
+# Check if the result is an error message or a matrix
+if isinstance(product, str):
+    print(product)
+else:
+    print("Multiplication of matrices A and B:")
+    for row in product:
+        print(row)
+3.#Write a program to find the number of common elements between two lists. The lists
+#contain integers.
+
+def countcommonelements(list1, list2):
+    # Converting both lists to sets to remove duplicates and allow for set operations
+    set1 = set(list1)
+    set2 = set(list2)
+
+    # Find the intersection of both sets
+    common_elements = set1.intersection(set2)
+
+    # Return the number of common elements
+    return len(common_elements)
+
+# Main program
+list1 = [1, 2, 3, 4, 5]
+list2 = [3, 4, 5, 6, 7]
+
+common_count = countcommonelements(list1, list2)
+print(f"Number of common elements: {common_count}")
+4.
+# Program to transpose a matrix using a nested loop
+
+X = [[1,2],
+    [3 ,],
+    [3 ,8]]
+
+result = [[0,0,0],
+         [0,0,0]]
+
+# iterate through rows
+for i in range(len(X)):
+   # iterate through columns
+   for j in range(len(X[0])):
+       result[j][i] = X[i][j]
+
+for r in result:
+   print(r)
